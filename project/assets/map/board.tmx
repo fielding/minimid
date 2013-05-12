@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="10" height="10" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="isocubes" tilewidth="64" tileheight="64" spacing="2">
+  <image source="isocubetileset.png" width="196" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="color" value="white"/>
+    <property name="type" value="cube"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="color" value="purple"/>
+    <property name="type" value="cube"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="color" value="teal"/>
+    <property name="type" value="cube"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="board" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAeMJGgllj1TDjYlKjHpYZU9aSqwaWeFDUAFqgAHw==
+  </data>
+ </layer>
+</map>
