@@ -142,7 +142,7 @@ end
 
 love.graphics.setColor(255,255,255,255)
 love.graphics.setFont(quoteFont)
-love.graphics.printf("\“It looks like you can write a minimalist piece without much bleeding. And you can. But not a good one.\”", 60, 162, 329,"right")
+love.graphics.printf("“It looks like you can write a minimalist piece without much bleeding. And you can. But not a good one.”", 60, 162, 329,"right")
 love.graphics.setFont(quoteAuthorFont)
 love.graphics.print("- David Foster Wallace", 266, 188)
 

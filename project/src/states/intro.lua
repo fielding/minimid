@@ -44,7 +44,7 @@ function intro:draw()
 
   love.graphics.setColor(255,255,255,255)
   love.graphics.setFont(quoteFont)
-  love.graphics.printf("\“Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.\”", 14, 115, 351, "right")
+  love.graphics.printf("“Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.”", 14, 115, 351, "right")
   love.graphics.setColor(119, 202, 162)
   love.graphics.setFont(quoteAuthorFont)
   love.graphics.print("- Antoine de Saint-Exupe", 229, 141)
