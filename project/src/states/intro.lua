@@ -2,18 +2,19 @@ Gamestate = require "hump.gamestate"
 
 intro = {}
 intro.name = "intro"
+intro.init = false
 
 function intro:init()
   logo = love.graphics.newImage("assets/img/logo.png")
-
   menuSelect = { position = 1, x = 509, y = 204 }
-
+  intro.init = true
 end
 
 function intro:enter(previous)
-  if previous.name == nil then
+  if intro.init == true then
     intro.prev = {}
-    intro.prev.name = "None"
+    intro.prev.name = "none"
+    intro.init = false
   else
     intro.prev = previous
   end
@@ -22,7 +23,6 @@ end
 function intro:update()
 
   if love.mouse.getX() > 509 and love.mouse.getX() < 582 and love.mouse.getY() > 197 and love.mouse.getY() < 216 then
-    
     if menuSelect.position == 2 then
       menuSelect.position = 1
       menuSelect.y = menuSelect.y - 34

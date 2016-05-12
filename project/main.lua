@@ -68,9 +68,8 @@ function love.load()
   completedLevels = {false, false, false, false}
 
   -- register callbacks for Gamestate, and move to the initial gamestate
-  Gamestate.registerEvents()
   Gamestate.switch(intro)
-
+  Gamestate.registerEvents()
 end
 
 function love.update(dt)
@@ -108,9 +107,7 @@ function debugOverlay()
   love.graphics.setColor(0,0,0,180)
   rwrc(5, 5, 150, 350, 20)
 
-  local current = Gamestate.getCurrent()
-
-  local prev = current.prev or "None"
+  local current = Gamestate.current()
 
   if audioMuted == true then
     audioStatus = "Muted"
@@ -121,7 +118,7 @@ function debugOverlay()
   -- information to print
   local information = {
   "ld48 #26 Debug", " ",
-  "Gamestate Info: ", "Current: "..current.name, "Prev: "..prev.name, " ", 
+  "Gamestate Info: ", "Current: "..current.name, "Prev: "..current.prev.name, " ", 
   "FPS: "..love.timer.getFPS(), " ", 
   "Mouse Location:", "X: "..love.mouse.getX(), "Y: "..love.mouse.getY()," ",
   "Audio Status: "..audioStatus}
@@ -142,14 +139,14 @@ function love.keypressed(k)
 
   -- menu
   if k == 'escape' then
-    
-    if Gamestate.getCurrent() == intro then
+
+    if Gamestate.current() == intro then
       love.event.quit()
       --Gamestate.switch(prev, Gamestate.getCurrent())
     else
-      Gamestate.switch(intro, Gamestate.getCurrent())
+      Gamestate.switch(intro, Gamestate.current())
     end
-    
+
     --[[ Disabling Menu for now
     if Gamestate.getCurrent() == menu then
       Gamestate.switch(previ, Gamestate.getCurrent())
@@ -165,7 +162,7 @@ function love.keypressed(k)
   if k == "p" then
     if Gamestate.getCurrent() == paused then
       Gamestate.switch(previ, Gamestate.getCurrent())
-    else  
+    else
       Gamestate.switch(paused, Gamestate.getCurrent())
     end
   end
@@ -179,9 +176,9 @@ function love.keypressed(k)
         debugDisplay = false
       end
     end
-    
+
     if k == "g" then
-      Gamestate.switch(gameover, Gamestate.getCurrent())
+      Gamestate.switch(gameover, Gamestate.current())
     end
 
     if k == "l" then
@@ -415,7 +412,6 @@ function spawnPlayer()
 end
 
 function isGameOver()
-  
   local count = 0
   -- check all blocks on the map/layer to see how many purple blocks are left
   for x, y, tile in layer:iterate() do
