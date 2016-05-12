@@ -89,7 +89,7 @@ end
 
 
 function intro:mousepressed(x, y, button)
-  if button == 'l' then
+  if button == 1 then
     -- start button bounds: 509x to 582x, 197y to 216y
     if x > 509 and x < 582 and y > 197 and y < 216 then
       Gamestate.switch(play, intro)

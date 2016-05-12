@@ -171,7 +171,7 @@ function gameover:keypressed(k)
 end
 
 function gameover:mousepressed(x, y, button)
-  if button == 'l' then 
+  if button == 1 then 
 
 -- next level button (583, 303) and (615, 323)
     if x > 583 and x < 615 and y > 303 and y < 323 then

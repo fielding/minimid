@@ -99,7 +99,7 @@ function about:keypressed(k)
 end
 
 function about:mousepressed(x, y, button)
-  if button == 'l' then
+  if button == 1 then
     -- back button bounds: 509x to 583x, 302y to 321y
     if x > 509 and x < 583 and y > 302 and y < 321 then
       Gamestate.switch(intro, about)

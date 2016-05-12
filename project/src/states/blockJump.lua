@@ -55,7 +55,7 @@ function blockJump:keypressed(k)
 end
 
 function blockJump:mousepressed(x, y, button)
-  if button == 'l' then 
+  if button == 1 then 
     if x > 586 and x < 610 and y > 76 and y < 102 then
       reset()
       Gamestate.switch(play, blockSelect)
